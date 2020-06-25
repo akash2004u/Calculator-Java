@@ -4,13 +4,28 @@ public class Polymorph {
 	public static void main(String[] args) {
 		//new Animal();
 		Cat cat = new Cat();	 	//object of subclass cat
-		Dog dog = new Dog();		//object of subclass Dog			
-		short a = dog.animalAge();
-		short b = cat.animalAge();
-		System.out.println("Cat\'s age is " + a);
-		System.out.println("Dog\'s age is " + b);
-		System.out.println("Combined age of cat and dog is " + (a + b));
+		Dog dog = new Dog();		
+		Vehicle car = new Vehicle(1);
+		Vehicle bike = new Vehicle(4);
+		
+		System.out.println("Combined age of cat and dog is " + sum(cat,dog));
+		System.out.println("Combined age of cat and dog is " + sum(car, bike));
 	}
+	
+	private static int sum(Animal a, Animal b) {
+	   return a.animalAge() + b.animalAge();
+	}
+	
+	private static int sum(Vehicle a, Vehicle b) {
+		return 0;
+	}
+}
+
+class Vehicle {
+    int age;
+    public Vehicle(int age) {
+	this.age = age;
+    }
 }
 
 class Animal {   // superclass
